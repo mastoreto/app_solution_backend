@@ -68,16 +68,19 @@ class RatingReviewDataTable extends DataTable {
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('service_id')
                 ->title(__('messages.service')),
             Column::make('customer_id')
                 ->title(__('messages.customer')),
-            Column::make('rating'),
+            Column::make('rating')
+            ->title(__('messages.table_address_column')),
             Column::make('review')
+            ->title(__('messages.table_review_column'))
                 ->width(350),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

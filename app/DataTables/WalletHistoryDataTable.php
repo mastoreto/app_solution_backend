@@ -52,7 +52,7 @@ class WalletHistoryDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.no'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('user_id')
                     ->title(__('messages.provider')),

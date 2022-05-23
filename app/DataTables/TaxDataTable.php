@@ -65,17 +65,18 @@ class TaxDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.no'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('title')
-                ->title(__('messages.title')),
+                ->title(__('messages.table_title_column')),
             Column::make('value')
                 ->title(__('messages.value')),
             Column::make('type')
-                ->title(__('messages.type')),
+                ->title(__('messages.table_type_column')),
             Column::make('status')
                 ->title(__('messages.status')),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

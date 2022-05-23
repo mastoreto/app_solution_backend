@@ -1,5 +1,4 @@
-<?php 
-return [
-  'previous' => 'Previa',
+<?php return  array (
+  'previous' => 'Anterior',
   'next' => 'Siguiente',
-];
+);

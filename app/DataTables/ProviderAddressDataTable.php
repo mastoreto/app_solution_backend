@@ -68,13 +68,16 @@ class ProviderAddressDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('provider_id')
             ->title(__('messages.provider')),
-            Column::make('address'),
-            Column::make('status'),
+            Column::make('address')
+            ->title(__('messages.table_address_column')),
+            Column::make('status')
+            ->title(__('messages.status')),
             Column::computed('action')
+                  ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

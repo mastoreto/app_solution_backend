@@ -62,17 +62,21 @@ class PaymentDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false)
                 ->width(60),
             Column::make('booking_id')
                 ->title(__('messages.service')),
             Column::make('customer_id')
                 ->title(__('messages.user')),
-            Column::make('payment_type'),
-            Column::make('payment_status'),
-            Column::make('datetime'),
-            Column::make('total_amount'),
+            Column::make('payment_type')
+                ->title(__('messages.table_paymenttype_column')),
+            Column::make('payment_status')
+                ->title(__('messages.table_paymentstatus_column')),
+            Column::make('datetime')
+                ->title(__('messages.date')),
+            Column::make('total_amount')
+                ->title(__('messages.table_totalamount_column')),
          
         ];
     }

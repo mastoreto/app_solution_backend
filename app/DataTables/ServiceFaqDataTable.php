@@ -61,13 +61,16 @@ class ServiceFaqDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                     ->searchable(false)
-                    ->title(__('messages.no'))
+                    ->title(__('messages.num'))
                     ->orderable(false),
-            Column::make('title'),
+            Column::make('title')
+                    ->title(__('messages.table_title_column')),
             Column::make('service_id')
                     ->title(__('messages.service')),
-            Column::make('status'),
+            Column::make('status')
+                    ->title(__('messages.status')),
             Column::computed('action')
+                    ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

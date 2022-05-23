@@ -52,10 +52,12 @@ class RoleDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false),
-            Column::make('name'),
+            Column::make('name')
+                ->title(__('messages.table_name_column')),
             Column::computed('action')
+                  ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

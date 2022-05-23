@@ -82,14 +82,16 @@ class ProviderDocumentDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.no'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('provider_id')
                 ->title(__('messages.provider')),
             Column::make('document_id')
                 ->title(__('messages.document')),
-            Column::make('is_verified'),
+            Column::make('is_verified')
+            ->title(__('messages.table_is_verified_column')),
             Column::computed('action')
+            ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

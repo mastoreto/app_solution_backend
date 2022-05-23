@@ -62,12 +62,16 @@ class ProviderTypeDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                   ->searchable(false)
-                  ->title(__('messages.srno'))
+                  ->title(__('messages.num'))
                   ->orderable(false),
-              Column::make('name'),
-              Column::make('commission'),
-              Column::make('type'),
+              Column::make('name')
+                  ->title(__('messages.name')),
+              Column::make('commission')
+                  ->title(__('messages.table_commission_column')),
+              Column::make('type')
+                  ->title(__('messages.table_type_column')),
               Column::computed('action')
+                  ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

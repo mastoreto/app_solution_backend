@@ -70,14 +70,19 @@ class NotificationDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false)
                 ->width(60),
-            Column::make('type'),
-            Column::make('message'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('type')
+                ->title(__('messages.table_type_column')),
+            Column::make('message')
+                ->title(__('messages.message')),
+            Column::make('created_at')
+                ->title(__('messages.table_created_at_column')),
+            Column::make('updated_at')
+                ->title(__('messages.table_updated_at_column')),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

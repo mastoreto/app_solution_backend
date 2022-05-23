@@ -71,13 +71,16 @@ class DocumentDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.no'))
+                ->title(__('messages.num'))
                 ->orderable(false),
-            Column::make('name'),
+            Column::make('name')
+                ->title(__('messages.table_name_column')),
             Column::make('is_required')
-            ->title(__('messages.is_required')),
-            Column::make('status'),
+                ->title(__('messages.table_is_verified_column')),
+            Column::make('status')
+                ->title(__('messages.status')),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

@@ -74,15 +74,21 @@ class CouponDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                   ->searchable(false)
-                  ->title(__('messages.srno'))
+                  ->title(__('messages.num'))
                   ->orderable(false)
                   ->width(60),
-            Column::make('code'),
-            Column::make('discount'),
-            Column::make('discount_type'),
-            Column::make('expire_date'),
-            Column::make('status'),           
+            Column::make('code')
+                ->title(__('messages.code')),
+            Column::make('discount')
+                ->title(__('messages.table_discount_column')),
+            Column::make('discount_type')
+                ->title(__('messages.table_type_column')),
+            Column::make('expire_date')
+                ->title(__('messages.expire_date')),
+            Column::make('status')
+                ->title(__('messages.status')),           
             Column::computed('action')
+                ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

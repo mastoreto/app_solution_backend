@@ -88,17 +88,22 @@ class ServiceDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false),
-            Column::make('name'),
+            Column::make('name')
+                ->title(__('messages.table_name_column')),
             Column::make('provider_id')
                 ->title(__('messages.provider')),
             Column::make('category_id')
                 ->title(__('messages.category')),
-            Column::make('price'),
-            Column::make('discount'),
-            Column::make('status'),
+            Column::make('price')
+            ->title(__('messages.table_price_column')),
+            Column::make('discount')
+            ->title(__('messages.table_discount_column')),
+            Column::make('status')
+            ->title(__('messages.status')),
             Column::computed('action')
+                  ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

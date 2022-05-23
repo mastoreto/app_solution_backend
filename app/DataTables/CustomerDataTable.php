@@ -66,15 +66,19 @@ class CustomerDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false)
                 ->width(60),
             Column::make('display_name')
-                ->title(__('messages.name')),
-            Column::make('contact_number'),
-            Column::make('address'),
-            Column::make('status'),
+                ->title(__('messages.table_name_column')),
+            Column::make('contact_number')
+                ->title(__('messages.table_contactNumber_column')),
+            Column::make('address')
+                ->title(__('messages.table_address_column')),
+            Column::make('status')
+                ->title(__('messages.status')),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

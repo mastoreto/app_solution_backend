@@ -61,16 +61,18 @@ class PayoutHistoryDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.no'))
+                ->title(__('messages.num'))
                 ->orderable(false),
             Column::make('provider_id')
                     ->title(__('messages.provider')),
-            Column::make('payment_method'),
+            Column::make('payment_method')
+                ->title(__('messages.table_payment_method_column')),
             Column::make('description')
                 ->title(__('messages.description')),
             Column::make('created_at')
                 ->title(__('messages.paid_date')),
             Column::make('amount')
+                ->title(__('messages.table_amount_column'))
         ];
     }
 

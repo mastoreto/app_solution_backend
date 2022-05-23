@@ -106,7 +106,7 @@ class BookingDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')
                 ->searchable(false)
-                ->title(__('messages.srno'))
+                ->title(__('messages.num'))
                 ->orderable(false)
                 ->width(30),
             Column::make('service_id')
@@ -121,13 +121,16 @@ class BookingDataTable extends DataTable
                 ->title(__('messages.user')),
             Column::make('booking_address_id')
                 ->title(__('messages.address')),
-            Column::make('status'),
-            Column::make('total_amount'),
+            Column::make('status')
+            ->title(__('messages.status')),
+            Column::make('total_amount')
+                ->title(__('messages.table_totalamount_column')),
             Column::make('payment_id')
                 ->title(__('messages.payment_status')),
             Column::make('date')
                 ->title(__('messages.booking_date')),
             Column::computed('action')
+                ->title(__('messages.table_action'))
                 ->exportable(false)
                 ->printable(false)
                 ->width(30)
