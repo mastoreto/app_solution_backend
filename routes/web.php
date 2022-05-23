@@ -41,9 +41,14 @@ use App\Http\Controllers\PlanController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 */
 require __DIR__.'/auth.php';
-Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+
+Route::get('/', function(){
+    return redirect('/login');
+});
+
 Route::group(['prefix' => 'auth'], function() {
     Route::get('login', [HomeController::class, 'authLogin'])->name('auth.login');
     Route::get('register', [HomeController::class, 'authRegister'])->name('auth.register');
@@ -84,6 +89,7 @@ Route::group(['middleware' => ['auth', 'verified']], function()
     Route::post('coupons-action',[CouponController::class, 'action'])->name('coupon.action');
     Route::resource('booking', BookingController::class);
     Route::post('booking-save', [ App\Http\Controllers\BookingController::class, 'store' ] )->name('booking.save');
+    Route::patch('booking-update/{id}', [ App\Http\Controllers\BookingController::class, 'updateState' ] )->name('booking.updateState');
     Route::post('booking-action',[BookingController::class, 'action'])->name('booking.action');
     Route::resource('slider', SliderController::class);
     Route::post('slider-action',[SliderController::class, 'action'])->name('slider.action');

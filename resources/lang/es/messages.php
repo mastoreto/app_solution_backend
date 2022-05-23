@@ -366,5 +366,6 @@
   'is_required' => 'Requerido',
   'table_created_at_column' => 'Creado',
   'table_updated_at_column' => 'Modificado',
+  'confirm_provider' => 'Aprobar servicio'
 
 );

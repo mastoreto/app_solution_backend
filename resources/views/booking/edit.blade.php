@@ -13,6 +13,16 @@
                     </div>
                 </div>
             </div>
+            @if($auth_user->user_type === "admin")
+            <div class="col-lg-12">
+                <div class="card p-2">
+                    {{ Form::model($bookingdata,['method' => 'patch', 'route'=>['booking.updateState',$bookingdata->id], 'data-toggle'=>"validator" ,'id'=>'booking'] ) }}
+                                {{ Form::hidden('id') }}
+                                {{ Form::submit( __('messages.confirm_provider'), ['class'=>'btn btn-md btn-success']) }}
+                    {{ Form::close() }}
+                </div>
+            </div>
+            @endif
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">

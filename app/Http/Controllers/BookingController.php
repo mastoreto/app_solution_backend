@@ -61,7 +61,7 @@ class BookingController extends Controller
         $data = $request->all();
         if($request->id == null)
         {
-            $data['status'] = 'pending';
+            $data['status'] = 'pending_admin';
         }       
         $data['date'] = isset($request->date) ? date('Y-m-d H:i:s',strtotime($request->date)) : date('Y-m-d H:i:s');
         $service_data = Service::find($data['service_id']);
@@ -256,6 +256,19 @@ class BookingController extends Controller
 		}
 
 		return  redirect(route('booking.index'))->withSuccess($message);
+    }
+
+    public function updateState($id)
+    {
+        $bookingdata = Booking::find($id);
+
+        $bookingdata->status = 'pending';
+
+        $bookingdata->save();
+
+        $message = __('messages.update_form',[ 'form' => __('messages.booking') ] );
+        
+        return  redirect(route('booking.index'))->withSuccess($message);
     }
 
     /**

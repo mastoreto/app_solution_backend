@@ -1,6 +1,3 @@
-<div id="loading">
-    @include('partials._body_loader')
-</div>
 @include('partials._body_header')
 
 @include('partials._body_sidebar')

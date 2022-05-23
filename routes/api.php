@@ -45,12 +45,15 @@ Route::post('social-login',[ API\User\UserController::class, 'socialLogin' ]);
 Route::post('contact-us', [ API\User\UserController::class, 'contactUs' ] );
 
 
+
+
 Route::get('dashboard-detail',[ API\DashboardController::class, 'dashboardDetail' ]);
 Route::get('service-rating-list',[API\ServiceController::class,'getServiceRating']);
 Route::get('user-detail',[API\User\UserController::class, 'userDetail']);
 Route::post('service-detail', [ API\ServiceController::class, 'getServiceDetail' ] );
 Route::get('user-list',[API\User\UserController::class, 'userList']);
-Route::get('booking-status', [ API\BookingController::class, 'bookingStatus' ] );
+Route::get('booking-status', [API\BookingController::class, 'bookingStatus' ] );
+Route::post('create-booking-attachment', [API\BookingAttachmentController::class, 'store' ]);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('service-save', [ App\Http\Controllers\ServiceController::class, 'store' ] );
@@ -62,6 +65,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('booking-detail', [ API\BookingController::class, 'getBookingDetail' ] );
     Route::post('save-booking-rating', [ API\BookingController::class, 'saveBookingRating' ] );
     Route::post('delete-booking-rating', [ API\BookingController::class, 'deleteBookingRating' ] );
+   
 
     Route::post('save-favourite',[ API\ServiceController::class, 'saveFavouriteService' ]);
     Route::post('delete-favourite',[ API\ServiceController::class, 'deleteFavouriteService' ]);
