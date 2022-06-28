@@ -88,7 +88,7 @@ class ProviderController extends Controller
             \Mail::send('verification.verification_email',
             array(), function($message) use ($user)
             {
-                $message->from(env('MAIL_FROM_ADDRESS'));
+                $message->from('info@ecservice.xyz','Activación de la cuenta');
                 $message->to($user->email);
             });
         }
